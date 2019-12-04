@@ -11,6 +11,9 @@ import { ClienteService } from './clientes/cliente.service';
 //Aqui va la clase que configura las rutas
 import { RouterModule, Routes } from '@angular/router';
 
+//Agrego las clases que me van a permitir conectarme a la direccion de los navegadores a nivel de api
+
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
 {path: '', redirectTo: '/clientes', pathMatch: 'full'},
@@ -32,6 +35,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
 
   ],
