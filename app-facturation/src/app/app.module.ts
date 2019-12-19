@@ -14,11 +14,15 @@ import { RouterModule, Routes } from '@angular/router';
 //Agrego las clases que me van a permitir conectarme a la direccion de los navegadores a nivel de api
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './clientes/form.component';
+
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
 {path: '', redirectTo: '/clientes', pathMatch: 'full'},
 {path: 'directivas', component: DirectivaComponent},
 {path: 'clientes', component: ClientesComponent},
+{path: 'clientes/form', component: FormComponent}
 
 ];
 
@@ -31,11 +35,13 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     DirectivaComponent,
-    ClientesComponent
+    ClientesComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
 
   ],
