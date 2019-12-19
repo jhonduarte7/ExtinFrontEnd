@@ -45,4 +45,16 @@ export class ClienteService {
 		    //////////////////fin PAra crear nuevo cliente//////////////////  
 
 
+
+          //////////////////Para obtener cliente por el id //////////////////
+
+          getCliente(id): Observable<Cliente>{
+
+          	return this.http.get<Cliente>(`${this.urlEndpoint}/${id}`)
+          	
+          }
+          //////////////////Fin Para obtener cliente por el id //////////////////
+
+
+
 }
