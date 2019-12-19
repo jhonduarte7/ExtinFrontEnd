@@ -3,6 +3,8 @@ import { Cliente } from './cliente';
 //import { CLIENTES } from './clientes.json';//constante que exporto segunda forma de traer datos
 import { ClienteService } from './cliente.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html'
@@ -36,6 +38,53 @@ export class ClientesComponent implements OnInit {
 
   ];
 */
+
+delete(cliente: Cliente): void{
+
+                
+              Swal.fire({
+                title: 'Estas seguro?',
+                text: `Estas seguro que deseas eliminar el cliente ${cliente.nombre} ${cliente.apellido}?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'No, Cancelar',
+                confirmButtonText: 'Si , Borrar esto!'
+              }).then((result) => {
+                if (result.value) {
+
+                   this.clienteService.delete(cliente.id)
+                  .subscribe(
+
+                    response =>{
+
+                      this.clientes = this.clientes.filter(cli => cli !== cliente)
+
+                           Swal.fire(
+                    'Cliente eliminado!',
+                    `El registro del cliente ${cliente.nombre} ha sido borrado.`,
+                    'success'
+                  )
+
+                    
+                  }
+                         
+                      
+
+                    )
+
+                  
+
+                
+                
+
+
+                }
+              })
+
+
+}//fin del metodo delete
 
 
 

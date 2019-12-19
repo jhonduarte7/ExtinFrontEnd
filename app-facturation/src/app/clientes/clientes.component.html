@@ -16,6 +16,7 @@
 			      <th scope="col">Email</th>
 			      <th scope="col">Fecha</th>
 			       <th scope="col">Editar</th>
+			       <th scope="col">Eliminar</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -25,7 +26,8 @@
 			      <td>{{cliente.apellido}}</td>
 			      <td>{{cliente.email}}</td>
 			      <td>{{cliente.fechaCreada}}</td>	
-			      <td><button type="button" name="button" [routerLink]="['/clientes/form', cliente.id]" class="btn btn-primary" >Editar</button></td>			    
+			      <td><button type="button" name="editar" [routerLink]="['/clientes/form', cliente.id]" class="btn btn-primary btn-sm" >Editar</button></td>	
+			       <td><button type="button" name="eliminar" (click)="delete(cliente)" class="btn btn-danger btn-sm" >Eliminar</button></td>			    
 			    </tr>			    
 			  </tbody>
 		  </table>

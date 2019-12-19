@@ -41,7 +41,6 @@ private title: string = "Crear Cliente";
 
   public create(): void{
 
-
   	/*console.log("cliked");
   	console.log(this.cliente);*/
 
@@ -52,16 +51,50 @@ private title: string = "Crear Cliente";
             cliente => {
             this.router.navigate(['/clientes'])
              
-               Swal.fire('Cliente Nuevo registrado')
+              // Swal.fire(`Cliente Nuevo ${cliente.nombre} registrado`)
 
-            
+                Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: `Cliente Nuevo ${cliente.nombre} registrado`,
+                showConfirmButton: false,
+                timer: 2000
+                    })
 
-               }
-  		);
+                                
+
+                                   }
+                      		);
+                  }//fin de crear
 
 
-    
+                  update(): void{
 
-  }
+                      this.clienteService.update(this.cliente)
+                      .subscribe(  cliente => {
+
+                         this.router.navigate(['/clientes'])
+
+                        Swal.fire({
+                          position: 'top-center',
+                          icon: 'success',
+                          title: `Cliente Actualizado ${cliente.nombre} con exito!`,
+                          showConfirmButton: false,
+                          timer: 2000
+                              })
+
+
+                           }
+
+
+                        )
+
+
+
+                  } 
+
+
+          
+
 
 }
