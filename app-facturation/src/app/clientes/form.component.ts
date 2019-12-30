@@ -54,7 +54,7 @@ private title: string = "Crear Cliente";
               // Swal.fire(`Cliente Nuevo ${cliente.nombre} registrado`)
 
                 Swal.fire({
-                position: 'top-center',
+                position: 'top-right',
                 icon: 'success',
                 title: `Cliente Nuevo ${cliente.nombre} registrado`,
                 showConfirmButton: false,
@@ -76,7 +76,7 @@ private title: string = "Crear Cliente";
                          this.router.navigate(['/clientes'])
 
                         Swal.fire({
-                          position: 'top-center',
+                          position: 'top-right',
                           icon: 'success',
                           title: `Cliente Actualizado ${cliente.nombre} con exito!`,
                           showConfirmButton: false,

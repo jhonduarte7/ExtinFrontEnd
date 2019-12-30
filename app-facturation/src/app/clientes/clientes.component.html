@@ -6,8 +6,10 @@
       <div class="my-2 text-left">
       	<button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/form']" >Crear Cliente</button>
       </div>
-
-		   <table class="table table-striped">
+       <div *ngIf="clientes?.length == 0" class="alert alert-info">
+       	   No hay registros en la base de datos
+       </div>
+		   <table class="table table-striped" *ngIf="clientes?.length>0">
 			  <thead>
 			    <tr>
 			      <th scope="col">Id</th>
@@ -21,14 +23,14 @@
 			  </thead>
 			  <tbody>
 			    <tr *ngFor="let cliente of clientes">
-			      <th scope="row">{{cliente.id}}</th>			      
+			      <th scope="row">{{cliente.id}}</th>
 			      <td>{{cliente.nombre}}</td>
 			      <td>{{cliente.apellido}}</td>
 			      <td>{{cliente.email}}</td>
-			      <td>{{cliente.fechaCreada}}</td>	
-			      <td><button type="button" name="editar" [routerLink]="['/clientes/form', cliente.id]" class="btn btn-primary btn-sm" >Editar</button></td>	
-			       <td><button type="button" name="eliminar" (click)="delete(cliente)" class="btn btn-danger btn-sm" >Eliminar</button></td>			    
-			    </tr>			    
+			      <td>{{cliente.fechaCreada}}</td>
+			      <td><button type="button" name="editar" [routerLink]="['/clientes/form', cliente.id]" class="btn btn-primary btn-sm" >Editar</button></td>
+			       <td><button type="button" name="eliminar" (click)="delete(cliente)" class="btn btn-danger btn-sm" >Eliminar</button></td>
+			    </tr>
 			  </tbody>
 		  </table>
   </div>
